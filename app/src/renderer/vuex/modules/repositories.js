@@ -30,6 +30,10 @@ const actions = {
     const savedRepositories = await dispatch('readRepositories')
     commit('setRepositories', savedRepositories || [])
   },
+  async initRepositoriesDirs ({ commit, dispatch }) {
+    const savedRepositories = await dispatch('readRepositories')
+    commit('setRepositories', savedRepositories || [])
+  },
   async saveRepositories (_, items) {
     return storage.setAsync('repositories', items)
   },

@@ -1,39 +1,47 @@
 <template>
-  <div id="#app">
-    <router-view></router-view>
+  <div id="#app" class="app">
+    <repositories-list class="repositories-list"></repositories-list>
+    <div class="router-view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+  import RepositoriesList from './components/RepositoriesList'
+
   import store from 'renderer/vuex/store'
   export default {
-    store
+    store,
+
+    components: {
+      RepositoriesList
+    },
+
+    created () {
+      this.$store.dispatch('updateRepositories');
+      this.$store.dispatch('initRepositoriesDirs');
+    }
   }
 </script>
 
 <style>
-  @import url(https://fonts.googleapis.com/css?family=Lato:300);
-
-  /** {*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-  /*}*/
-
-  /*html,*/
-  /*body { height: 100%; }*/
-
-  /*body {*/
-    /*align-items: center;*/
-    /*background:*/
-      /*radial-gradient(*/
-        /*ellipse at center,*/
-        /*rgba(255, 255, 255, 1) 0%,*/
-        /*rgba(229, 229, 229, .85) 100%*/
-      /*);*/
-    /*background-position: center;*/
-    /*display: flex;*/
-    /*font-family: Lato, Helvetica, sans-serif;*/
-    /*justify-content: center;*/
-    /*text-align: center;*/
-  /*}*/
+  body {
+    margin: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  .router-view {
+    float: left;
+    width: calc(100% - 200px);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .repositories-list {
+    float: left;
+    width: 200px;
+    overflow: hidden;
+  }
 </style>

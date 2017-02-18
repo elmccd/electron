@@ -10,7 +10,12 @@ export default [
     component: require('components/LoginPageView')
   },
   {
-    path: '/repository/:id',
+    path: '/add',
+    name: 'add-repository-page',
+    component: require('components/AddRepositoryView')
+  },
+  {
+    path: '/repository/:repositoryId',
     name: 'repository-page',
     component: require('components/RepositoryView')
   },

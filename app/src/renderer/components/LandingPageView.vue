@@ -36,7 +36,7 @@
     },
     methods: {
       ...mapActions([
-        'updateRepositories',
+        'setRepositories',
         'addRepository'
       ]),
       submitRepository: function (e) {

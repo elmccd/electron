@@ -19,7 +19,7 @@
     },
 
     created () {
-      this.$store.dispatch('updateRepositories');
+      this.$store.dispatch('setRepositories');
       this.$store.dispatch('initRepositoriesDirs');
     }
   }

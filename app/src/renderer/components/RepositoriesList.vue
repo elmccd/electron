@@ -3,7 +3,7 @@
     <a class="item"
        :href="'#/repository/' + item.id"
        v-bind:class="{ active: item.id === selected }" v-for="item in repositories.items">
-      {{item.name}} - {{item.id}}
+      {{item.name}}
     </a>
     <a class="add-new-one" href="#/add">+ Add new one</a>
   </div>
